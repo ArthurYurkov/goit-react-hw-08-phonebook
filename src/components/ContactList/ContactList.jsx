@@ -1,8 +1,14 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/contactSelectors';
-import { deleteContactsThunk, getContactsThunk } from 'redux/contactsThunk';
+import { selectContacts, selectFilter } from 'redux/Contacts/contactSelectors';
+import {
+  deleteContactsThunk,
+  getContactsThunk,
+} from 'redux/Contacts/contactsThunk';
 import s from './styles.module.css';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function ContactList() {
   const dispatch = useDispatch();
@@ -30,7 +36,7 @@ export default function ContactList() {
               <div className={s.contactItem}>
                 <span>{name}</span>
                 <span>{number}</span>
-                <button
+                {/* <button
                   type="button"
                   onClick={() => {
                     dispatch(deleteContactsThunk(id));
@@ -38,7 +44,16 @@ export default function ContactList() {
                   className={s.contactBtn}
                 >
                   Delete
-                </button>
+                </button> */}
+                <Button
+                  variant="outlined"
+                  startIcon={<DeleteIcon />}
+                  onClick={() => {
+                    dispatch(deleteContactsThunk(id));
+                  }}
+                >
+                  Delete
+                </Button>
               </div>
             </div>
           );

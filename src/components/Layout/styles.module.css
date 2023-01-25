@@ -1,0 +1,105 @@
+.headerNav {
+  display: flex;
+  height: 120px;
+  max-width: 1280px;
+  margin: 0px auto 10px auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.116);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 1px 10px;
+}
+
+.navigationRight {
+  display: flex;
+  gap: 20px;
+  padding: 0px 10%;
+  align-items: center;
+}
+
+.navigationLeft {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  padding: 0px 5%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  font-weight: 500;
+  font-size: 23px;
+  width: auto;
+  transition: all 300ms;
+  color: #2f6436;
+  border-radius: 20px;
+  height: 90px;
+  background-color: #ffffff;
+  padding: 0px 20px;
+}
+
+.navItem:hover,
+.navItem:focus {
+  border-radius: 20px;
+  height: 90px;
+  box-shadow: rgba(47, 100, 54, 0.2) 0px 1px 3px 0px,
+    rgba(47, 100, 54, 0.15) 0px 0px 0px 1px;
+}
+
+.activeNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #497174;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 23px;
+  width: auto;
+  padding: 0px 20px;
+
+  border-radius: 20px;
+  height: 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.logOut {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #497174;
+  font-weight: 400;
+  font-size: 17px;
+}
+
+.logOutBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #497174;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  width: auto;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: all 300ms;
+}
+
+.logOutBtn:hover,
+.logOutBtn:focus {
+  color: #2f6436;
+  box-shadow: rgba(47, 100, 54, 0.2) 0px 1px 3px 0px,
+    rgba(47, 100, 54, 0.15) 0px 0px 0px 1px;
+  background-color: #ffffff;
+}
