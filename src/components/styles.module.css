@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titleInput {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #4178c0;
+  color: #f3f4ed;
+  margin-bottom: 10px;
+  width: auto;
+  height: 52px;
+  position: relative;
+  top: 26px;
+  left: -134px;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.titleBook {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #4178c0;
+  color: #f3f4ed;
+  width: auto;
+  height: 39px;
+  position: relative;
+  top: 22px;
+  left: -171px;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}

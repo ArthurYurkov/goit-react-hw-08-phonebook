@@ -1,0 +1,39 @@
+.filterContainer {
+  background-color: #4178c0;
+  margin-top: -80px;
+  width: 230px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+  position: relative;
+  top: 35px;
+  left: 126px;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 250ms;
+}
+
+.filterContainer:focus-within,
+.filterContainer:hover {
+  background-color: #f3f4ed;
+  color: #4178c0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  scale: 1.03;
+}
+
+.filterInput {
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  width: 200px;
+  padding: 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.filterInput:focus {
+  outline: none;
+}
