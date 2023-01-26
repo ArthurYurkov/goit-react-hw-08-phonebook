@@ -1,3 +1,4 @@
+import { Box, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/Contacts/contactSelectors';
@@ -19,8 +20,8 @@ export default function ContactForm() {
     e.preventDefault();
 
     const newContactItem = {
-      name,
-      number,
+      name: name,
+      number: number,
     };
 
     contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())
@@ -38,10 +39,20 @@ export default function ContactForm() {
   return (
     <>
       <div className={s.container}>
-        <form onSubmit={handleSubmit}>
-          <div className={s.formInput}>
-            <h3 className={s.formTitle}>Name</h3>
-            <input
+        <h2>Phonebook</h2>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '35ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div className={s.inputStyle}>
+            <TextField
+              id="outlined-name-input"
+              label="Name"
               type="text"
               name="name"
               value={name}
@@ -49,14 +60,12 @@ export default function ContactForm() {
               className={s.inpt}
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              required
-              autoComplete="off"
-              placeholder="Write name of person"
+              autoComplete="current-password"
             />
-          </div>
-          <div className={s.formInput}>
-            <h3 className={s.formTitle}>Number</h3>
-            <input
+
+            <TextField
+              id="outlined-password-input"
+              label="Number"
               type="tel"
               name="number"
               value={number}
@@ -64,17 +73,15 @@ export default function ContactForm() {
               className={s.inpt}
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-              required
-              autoComplete="off"
-              placeholder="+38(000) 000-00-00"
+              autoComplete="current-password"
             />
+            <div className={s.btnCont}>
+              <button className={s.regBtn} type="submit">
+                Add contact
+              </button>
+            </div>
           </div>
-          <div className={s.formBtn}>
-            <button className={s.btn} type="submit">
-              Add contact
-            </button>
-          </div>
-        </form>
+        </Box>
       </div>
     </>
   );

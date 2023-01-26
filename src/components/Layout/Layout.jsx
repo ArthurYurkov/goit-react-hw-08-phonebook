@@ -2,31 +2,40 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
-import { selectName, selectToken } from 'redux/Auth/authSelectors';
+import { selectUser } from 'redux/Auth/authSelectors';
 import { getLogOutThunk } from 'redux/Auth/authThunk';
 import styles from './styles.module.css';
 
 export default function Layout() {
-  const token = useSelector(selectToken);
-  // const name = useSelector(selectName);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  console.log(token);
   return (
     <>
       <header className={styles.headerNav}>
-        {token ? (
+        {user ? (
           <nav className={styles.navigationLeft}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? styles.activeNav : styles.navItem
-              }
-              to="login"
-            >
-              {' '}
-              Contacts
-            </NavLink>
+            <div className={styles.navDiv}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? styles.activeNav : styles.navItem
+                }
+                to="home"
+              >
+                {' '}
+                Home
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? styles.activeNav : styles.navItem
+                }
+                to="contacts"
+              >
+                {' '}
+                Contacts
+              </NavLink>
+            </div>
             <div className={styles.logOut}>
-              <p>Hello, mango@mail.com</p>
+              <p>Hello, {user.name}</p>
               <button
                 className={styles.logOutBtn}
                 onClick={() => dispatch(getLogOutThunk())}

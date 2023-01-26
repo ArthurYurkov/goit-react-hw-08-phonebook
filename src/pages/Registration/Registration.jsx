@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectToken } from 'redux/Auth/authSelectors';
+import { useDispatch } from 'react-redux';
+
 import { getSignUpThunk } from 'redux/Auth/authThunk';
 
 import s from './styles.module.css';
@@ -12,7 +12,6 @@ export default function Registration() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
-  const token = useSelector(selectToken);
   const dispatch = useDispatch();
 
   const nameChange = e => setUserName(e.target.value.trim());
@@ -30,9 +29,6 @@ export default function Registration() {
       dispatch(getSignUpThunk(newUser));
     }
 
-    if (!token) {
-      return alert('Something went wrong');
-    }
     reset();
   };
 

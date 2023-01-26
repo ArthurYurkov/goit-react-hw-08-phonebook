@@ -7,8 +7,8 @@ import {
   getContactsThunk,
 } from 'redux/Contacts/contactsThunk';
 import s from './styles.module.css';
-import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
+
+import Filter from 'components/Filter/Filter';
 
 export default function ContactList() {
   const dispatch = useDispatch();
@@ -30,32 +30,26 @@ export default function ContactList() {
   return (
     <>
       <div className={s.container}>
+        <Filter />
         {filteredContacts.map(({ name, number, id }) => {
           return (
-            <div key={id} className={s.contactList}>
-              <div className={s.contactItem}>
-                <span>{name}</span>
-                <span>{number}</span>
-                {/* <button
-                  type="button"
-                  onClick={() => {
-                    dispatch(deleteContactsThunk(id));
-                  }}
-                  className={s.contactBtn}
-                >
-                  Delete
-                </button> */}
-                <Button
-                  variant="outlined"
-                  startIcon={<DeleteIcon />}
-                  onClick={() => {
-                    dispatch(deleteContactsThunk(id));
-                  }}
-                >
-                  Delete
-                </Button>
+            <>
+              <div key={id} className={s.contactList}>
+                <div className={s.contactItem}>
+                  <span>{name}</span>
+                  <span>{number}</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dispatch(deleteContactsThunk(id));
+                    }}
+                    className={s.contactBtn}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
+            </>
           );
         })}
       </div>

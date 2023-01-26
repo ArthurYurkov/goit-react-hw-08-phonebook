@@ -11,6 +11,7 @@ export default function Filter() {
   return (
     <>
       <div className={s.filterContainer}>
+        <p>Filter</p>
         <label className={s.filterFocus}>
           <input
             type="text"
@@ -18,7 +19,7 @@ export default function Filter() {
             className={s.filterInput}
             value={filter}
             onChange={handleFilter}
-            placeholder="Filter (name)"
+            placeholder="Name"
           />
         </label>
       </div>
