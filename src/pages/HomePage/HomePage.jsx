@@ -10,7 +10,7 @@ export default function HomePage() {
           We make your life easier, even if you don't need it
         </h2>
         <NavLink className={s.btnHome} to="/contacts">
-          Let's start a new life together
+          Let's start a new future together
         </NavLink>
       </div>
       <div className={s.divJobs}>

@@ -1,10 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 
 import s from './styles.module.css';
 import Layout from './Layout/Layout';
 import { RestrictedRoute } from './PublicRoute/PublicRoute';
-import { PrivateRoute } from './PrivatRoute/PrivatRoute';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { useDispatch } from 'react-redux';
+
+import { getCurrentUserThunk } from 'redux/Auth/authThunk';
 
 const Registration = lazy(() => import('../pages/Registration/Registration'));
 const Login = lazy(() => import('../pages/Login/Login'));
@@ -12,6 +15,12 @@ const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCurrentUserThunk());
+  }, [dispatch]);
+
   return (
     <>
       <div className={s.container}>

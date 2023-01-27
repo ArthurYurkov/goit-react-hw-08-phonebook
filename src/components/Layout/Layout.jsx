@@ -9,6 +9,7 @@ import styles from './styles.module.css';
 export default function Layout() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+
   return (
     <>
       <header className={styles.headerNav}>

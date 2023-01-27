@@ -27,29 +27,28 @@ export default function ContactList() {
   };
 
   const filteredContacts = filterList();
+
   return (
     <>
       <div className={s.container}>
         <Filter />
-        {filteredContacts.map(({ name, number, id }) => {
+        {filteredContacts.map(({ id, name, number }) => {
           return (
-            <>
-              <div key={id} className={s.contactList}>
-                <div className={s.contactItem}>
-                  <span>{name}</span>
-                  <span>{number}</span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      dispatch(deleteContactsThunk(id));
-                    }}
-                    className={s.contactBtn}
-                  >
-                    Delete
-                  </button>
-                </div>
+            <div key={id} className={s.contactList}>
+              <div className={s.contactItem}>
+                <span>{name}</span>
+                <span>{number}</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    dispatch(deleteContactsThunk(id));
+                  }}
+                  className={s.contactBtn}
+                >
+                  Delete
+                </button>
               </div>
-            </>
+            </div>
           );
         })}
       </div>
