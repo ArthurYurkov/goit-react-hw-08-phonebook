@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { selectUser } from 'redux/Auth/authSelectors';
 import s from './styles.module.css';
 
 export default function HomePage() {
+  const user = useSelector(selectUser);
   return (
     <>
       <div className={s.container}>
@@ -9,9 +12,15 @@ export default function HomePage() {
         <h2 className={s.titleH2}>
           We make your life easier, even if you don't need it
         </h2>
-        <NavLink className={s.btnHome} to="/contacts">
-          Let's start a new future together
-        </NavLink>
+        {user ? (
+          <NavLink className={s.btnHome} to="/contacts">
+            Let's start a new future together
+          </NavLink>
+        ) : (
+          <NavLink className={s.btnHome} to="/login">
+            Let's start a new future together
+          </NavLink>
+        )}
       </div>
       <div className={s.divJobs}>
         <img

@@ -51,6 +51,15 @@ export default function Layout() {
               className={({ isActive }) =>
                 isActive ? styles.activeNav : styles.navItem
               }
+              to="home"
+            >
+              {' '}
+              Home
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? styles.activeNav : styles.navItem
+              }
               to="login"
             >
               Login
