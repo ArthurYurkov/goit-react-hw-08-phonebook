@@ -20,7 +20,7 @@ export default function Layout() {
                 className={({ isActive }) =>
                   isActive ? styles.activeNav : styles.navItem
                 }
-                to="home"
+                to="/"
               >
                 {' '}
                 Home
@@ -51,7 +51,7 @@ export default function Layout() {
               className={({ isActive }) =>
                 isActive ? styles.activeNav : styles.navItem
               }
-              to="home"
+              to="/"
             >
               {' '}
               Home

@@ -27,11 +27,12 @@ export const App = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
               <Route
                 path="/register"
                 element={
                   <RestrictedRoute
-                    redirectTo="/home"
+                    redirectTo="/"
                     component={<Registration />}
                   />
                 }
@@ -39,7 +40,7 @@ export const App = () => {
               <Route
                 path="/login"
                 element={
-                  <RestrictedRoute redirectTo="/home" component={<Login />} />
+                  <RestrictedRoute redirectTo="/" component={<Login />} />
                 }
               />
               <Route
@@ -48,7 +49,6 @@ export const App = () => {
                   <PrivateRoute redirectTo="/login" component={<Contacts />} />
                 }
               />
-              <Route path="/home" element={<HomePage />} />
             </Route>
           </Routes>
         </Suspense>
